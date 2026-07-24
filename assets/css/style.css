@@ -23,10 +23,10 @@
   --font-en: "Archivo", "Helvetica Neue", Arial, sans-serif;
 
   /* --- 文字サイズ（全て可変） --- */
-  /* Hero見出し専用。最長行「開業から、その先の」＝9文字が
-     320px幅でも1行に収まるよう、下限を viewport 追従にしている。
-     ここを大きくすると狭い端末で「の」が1文字だけ次行に落ちる。 */
-  --size-display: clamp(1.875rem, 8.3vw, 5.5rem);
+  /* Hero見出し専用。最長行「クリニック開業から、」＝10文字が
+     320px〜大画面まで1行に収まるサイズに調整している。
+     ここを大きくすると狭い端末や広い画面で行が途中で折り返す。 */
+  --size-display: clamp(1.55rem, 7.6vw, 5rem);
   --size-h1:      clamp(2rem, 5vw, 3.75rem);
   --size-h2:      clamp(1.75rem, 4.2vw, 3rem);
   --size-h3:      clamp(1.1875rem, 2vw, 1.5rem);
