@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  本番ドメインが決まったら、このファイルを sitemap.xml にリネーム（またはコピー）し、
+  下記 loc を実際の URL に書き換えてください。
+  例: https://example.com/
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://EXAMPLE.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
