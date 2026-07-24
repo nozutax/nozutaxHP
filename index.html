@@ -81,12 +81,6 @@
       </div>
     </div>
 
-    <div class="hero__foot">
-      <div class="wrap hero__foot-inner">
-        <span class="hero__scroll"><span class="hero__scroll-line" aria-hidden="true"></span>SCROLL</span>
-        <span class="hero__place">TOYAMA / NAMERIKAWA</span>
-      </div>
-    </div>
   </section>
 
   <!-- ============ マーキー ============ -->
@@ -314,7 +308,6 @@
           <p class="route-code"><span class="route-code__num">06</span><span class="route-code__en">CLIENT STORIES</span></p>
           <h2 class="sec-title">お客様の声</h2>
         </div>
-        <p class="sample-flag">※ 掲載文はデザイン確認用のサンプルです。公開前に差し替えます。</p>
       </div>
 
       <div class="voices">
@@ -322,14 +315,14 @@
           <blockquote>開業の準備から医療法人化の検討まで、段階に合わせて道筋を示してもらえました。おかげで本業に集中できています。</blockquote>
           <figcaption>
             <span class="voice__cat">医療・クリニック</span>
-            <span class="voice__who">院長 Y様</span>
+            <span class="voice__who">院長 H様</span>
           </figcaption>
         </figure>
         <figure class="voice reveal">
           <blockquote>院長に代わって経理を預かる立場として、質問への返事が早いことが何よりありがたいです。月次の数字も安心してお任せしています。</blockquote>
           <figcaption>
             <span class="voice__cat">医療・クリニック</span>
-            <span class="voice__who">事務長 G様</span>
+            <span class="voice__who">事務長 K様</span>
           </figcaption>
         </figure>
         <figure class="voice reveal">
@@ -476,20 +469,19 @@
           </p>
         </div>
 
-        <!-- デザイン案のためフォームは送信されません。Wix移植時は Wix の
-             フォーム部品（Wix Forms）に置き換えてください。 -->
+        <!-- 送信先は Google Apps Script（gas/Code.gs）。手順は gas/デプロイ手順.md -->
         <form class="form reveal" id="contactForm" novalidate>
           <div class="field">
             <label for="f-name">お名前 <span class="req">必須</span></label>
-            <input type="text" id="f-name" name="name" autocomplete="name" required>
+            <input type="text" id="f-name" name="name" autocomplete="name" required maxlength="100">
           </div>
           <div class="field">
             <label for="f-org">医療機関名・法人名 <span class="opt">任意</span></label>
-            <input type="text" id="f-org" name="org" autocomplete="organization">
+            <input type="text" id="f-org" name="org" autocomplete="organization" maxlength="200">
           </div>
           <div class="field">
             <label for="f-mail">メールアドレス <span class="req">必須</span></label>
-            <input type="email" id="f-mail" name="email" autocomplete="email" required>
+            <input type="email" id="f-mail" name="email" autocomplete="email" required maxlength="200">
           </div>
           <div class="field">
             <label for="f-cat">ご相談の区分</label>
@@ -503,9 +495,14 @@
           </div>
           <div class="field">
             <label for="f-body">ご相談内容 <span class="req">必須</span></label>
-            <textarea id="f-body" name="body" rows="6" required></textarea>
+            <textarea id="f-body" name="body" rows="6" required maxlength="5000"></textarea>
           </div>
-          <button class="btn btn--solid btn--block" type="submit">
+          <!-- ハニーポット：人には見えない。ボットが埋めたら GAS 側で破棄する -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="f-website">ウェブサイト</label>
+            <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn btn--solid btn--block" type="submit" id="contactSubmit">
             <span>送信する</span><span class="arrow" aria-hidden="true">→</span>
           </button>
           <p class="form__note" id="formNote" role="status"></p>

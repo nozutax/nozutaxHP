@@ -241,6 +241,7 @@ body {
   color: var(--white);
   overflow: hidden;
   padding-top: var(--header-h);
+  padding-bottom: clamp(1.25rem, 3vh, 2.25rem);
 }
 
 /* 同心円リング */
@@ -323,50 +324,6 @@ body {
   flex-wrap: wrap;
   gap: clamp(0.75rem, 1.5vw, 1.25rem);
   margin-top: clamp(2rem, 4.5vw, 3.25rem);
-}
-
-.hero__foot {
-  position: relative;
-  z-index: 2;
-  padding-bottom: clamp(1.25rem, 3vh, 2.25rem);
-}
-.hero__foot-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  border-top: 1px solid rgba(168, 184, 172, 0.18);
-  padding-top: 1rem;
-}
-.hero__scroll,
-.hero__place {
-  font-family: var(--font-en);
-  font-size: 0.625rem;
-  letter-spacing: 0.28em;
-  color: var(--mist);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.9em;
-}
-.hero__scroll-line {
-  width: 34px; height: 1px;
-  background: var(--mist-dim);
-  position: relative;
-  overflow: hidden;
-}
-.hero__scroll-line::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--white);
-  transform-origin: left;
-  animation: scrollLine 2.4s var(--ease-out) infinite;
-}
-@keyframes scrollLine {
-  0%   { transform: scaleX(0); transform-origin: left; }
-  45%  { transform: scaleX(1); transform-origin: left; }
-  55%  { transform: scaleX(1); transform-origin: right; }
-  100% { transform: scaleX(0); transform-origin: right; }
 }
 
 /* =========================================================
@@ -518,15 +475,6 @@ body {
   color: rgba(10, 23, 18, 0.72);
 }
 .sec-lead.on-dark { color: rgba(253, 252, 249, 0.78); }
-
-.sample-flag {
-  align-self: end;
-  font-size: var(--size-small);
-  line-height: 1.8;
-  color: var(--signal);
-  border-left: 2px solid var(--signal);
-  padding-left: 0.9em;
-}
 
 /* =========================================================
    01 選ばれる理由
@@ -1077,6 +1025,7 @@ a:hover > .ext { transform: translate(2px, -2px); color: var(--white); }
 
 /* フォーム */
 .form {
+  position: relative;
   background: var(--white);
   border: 1px solid rgba(10, 23, 18, 0.1);
   padding: clamp(1.5rem, 3.5vw, 2.75rem);
@@ -1125,6 +1074,16 @@ a:hover > .ext { transform: translate(2px, -2px); color: var(--white); }
 .field input:focus,
 .field select:focus,
 .field textarea:focus { background: var(--white); border-color: var(--signal); }
+
+/* ハニーポット：画面外に置き、人間には触れさせない */
+.hp-field {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 
 .form__note {
   font-size: var(--size-small);
@@ -1256,7 +1215,6 @@ a:hover > .ext { transform: translate(2px, -2px); color: var(--white); }
 
 @media (max-width: 640px) {
   .hero__rings { right: -40vw; width: 130vw; }
-  .hero__place { display: none; }
   .timeline li { grid-template-columns: 3.5rem minmax(0, 1fr); gap: 0.75rem; }
   .faq__q { padding-right: 2.25rem; }
   .faq__a { padding-right: 0; }

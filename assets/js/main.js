@@ -1,9 +1,15 @@
 /* =========================================================
-   野津税理士事務所 デザイン案 － 挙動
+   野津税理士事務所 HP － 挙動
    依存ライブラリなし
    ========================================================= */
 (function () {
   'use strict';
+
+  /* -------------------------------------------------------
+     お問い合わせ送信先（Google Apps Script ウェブアプリ URL）
+     デプロイ後、gas/デプロイ手順.md に従ってここに貼る
+     ------------------------------------------------------- */
+  var CONTACT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyqzW68Z9RW7rCBkSIHhmwh8C65NMG7a1wBnDmNfiw6xmvHxhHPME6L37QIEfJCq2Zm-Q/exec';
 
   var header    = document.querySelector('.header');
   var nav       = document.getElementById('nav');
@@ -108,22 +114,75 @@
   }
 
   /* -------------------------------------------------------
-     4. お問い合わせフォーム
-        デザイン案のため送信処理は行わない。
-        Wix へ移植する際は Wix Forms 部品に差し替える。
+     4. お問い合わせフォーム → GAS へ送信
      ------------------------------------------------------- */
   var form = document.getElementById('contactForm');
   var note = document.getElementById('formNote');
+  var submitBtn = document.getElementById('contactSubmit');
+
+  function setNote(msg) {
+    if (note) { note.textContent = msg; }
+  }
+
+  function setBusy(busy) {
+    if (!submitBtn) { return; }
+    submitBtn.disabled = busy;
+    submitBtn.setAttribute('aria-busy', busy ? 'true' : 'false');
+  }
 
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+
       if (!form.checkValidity()) {
-        note.textContent = '必須項目にご記入ください。';
+        setNote('必須項目にご記入ください。');
         form.reportValidity();
         return;
       }
-      note.textContent = 'デザイン案のため、フォームからの送信は行われません。実際のお問い合わせは nozu.tax@gmail.com までお願いいたします。';
+
+      if (!CONTACT_ENDPOINT) {
+        setNote('送信設定が未完了です。メール（nozu.tax@gmail.com）でご連絡ください。');
+        return;
+      }
+
+      var payload = {
+        name: (form.elements.name && form.elements.name.value) || '',
+        org: (form.elements.org && form.elements.org.value) || '',
+        email: (form.elements.email && form.elements.email.value) || '',
+        category: (form.elements.category && form.elements.category.value) || '',
+        body: (form.elements.body && form.elements.body.value) || '',
+        website: (form.elements.website && form.elements.website.value) || ''
+      };
+
+      setBusy(true);
+      setNote('送信中です…');
+
+      // Content-Type を text/plain にして CORS プリフライトを避ける（GAS向け定石）
+      fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+        redirect: 'follow'
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data && data.ok) {
+            setNote('送信しました。確認メールをお送りしましたのでご確認ください。');
+            form.reset();
+            return;
+          }
+          if (data && data.error === 'rate_limit') {
+            setNote('送信が集中しています。1分ほどおいてから再度お試しください。');
+            return;
+          }
+          setNote('送信に失敗しました。メール（nozu.tax@gmail.com）でご連絡ください。');
+        })
+        .catch(function () {
+          setNote('送信に失敗しました。メール（nozu.tax@gmail.com）でご連絡ください。');
+        })
+        .then(function () {
+          setBusy(false);
+        });
     });
   }
 })();
