@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($py = \\(Get-Command python -ErrorAction SilentlyContinue\\).Source; $node = \\(Get-Command node -ErrorAction SilentlyContinue\\).Source; $npx = \\(Get-Command npx -ErrorAction SilentlyContinue\\).Source; \"python=$py\"; \"node=$node\"; \"npx=$npx\")",
+      "PowerShell(Get-ChildItem -Recurse -File \"C:\\\\Users\\\\kyota\\\\Desktop\\\\Gdrive pro7\\\\CloudeCode\\\\20260724事務所HP\" | Select-Object @{n='Path';e={$_.FullName.Replace\\('C:\\\\Users\\\\kyota\\\\Desktop\\\\Gdrive pro7\\\\CloudeCode\\\\20260724事務所HP\\\\',''\\)}}, @{n='KB';e={[math]::Round\\($_.Length/1KB,1\\)}})",
+      "PowerShell(Get-ChildItem -Recurse -File \"C:\\\\Users\\\\kyota\\\\Desktop\\\\Gdrive pro7\\\\CloudeCode\\\\20260724事務所HP\\\\picture\" | Select-Object Name, @{n='KB';e={[math]::Round\\($_.Length/1KB,1\\)}}, FullName)"
+    ]
+  }
+}
