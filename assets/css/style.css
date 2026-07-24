@@ -1077,12 +1077,15 @@ a:hover > .ext { transform: translate(2px, -2px); color: var(--white); }
 
 /* ハニーポット：画面外に置き、人間には触れさせない */
 .hp-field {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  clip: rect(0, 0, 0, 0);
 }
 
 .form__note {
