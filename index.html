@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=20260727a">
+<link rel="stylesheet" href="assets/css/style.css?v=20260727b">
 <!-- JS が有効なときだけスクロール演出を有効にする（無効時は最初から全て表示） -->
 <script>document.documentElement.className += " js";</script>
 
@@ -81,7 +81,10 @@
         {
           "@type": "Person",
           "name": "野津和彦",
-          "jobTitle": "税理士"
+          "jobTitle": [
+            "税理士",
+            "TKC全国会 クリニック開業支援アドバイザー"
+          ]
         },
         {
           "@type": "Person",
@@ -96,6 +99,14 @@
       "url": "https://nzktax.com/#faq",
       "isPartOf": { "@id": "https://nzktax.com/#website" },
       "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "初回の相談は無料ですか。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。初回のご相談は無料です。開業前のご相談やオンライン（ZOOM）での初回面談にも対応しています。"
+          }
+        },
         {
           "@type": "Question",
           "name": "開業するかどうか、まだ決めていない段階でも相談できますか。",
@@ -125,7 +136,7 @@
           "name": "顧問料はどのくらいかかりますか。",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "事業の規模やご依頼いただく業務の範囲によって異なります。ご相談の際に内容をお伺いしたうえで、お見積りをご提示いたします。"
+            "text": "初回のご相談は無料です。顧問料は、事業の規模やご依頼いただく業務の範囲によって異なります。ご相談の際に内容をお伺いしたうえで、お見積りをご提示いたします。"
           }
         },
         {
@@ -176,7 +187,7 @@
         <li><a href="#access">事務所案内</a></li>
       </ul>
       <a class="nav__cta" href="#contact">
-        <span>無料でご相談</span>
+        <span>初回無料でご相談</span>
         <span class="arrow" aria-hidden="true">→</span>
       </a>
     </nav>
@@ -210,7 +221,7 @@
       </p>
       <div class="hero__actions">
         <a class="btn btn--solid" href="#contact">
-          <span>無料でご相談</span><span class="arrow" aria-hidden="true">→</span>
+          <span>初回無料でご相談</span><span class="arrow" aria-hidden="true">→</span>
         </a>
         <a class="btn btn--ghost" href="#services">
           <span>業務内容を見る</span>
@@ -408,7 +419,10 @@
             <li><span class="timeline__year">1989</span><span class="timeline__text">税理士登録</span></li>
             <li><span class="timeline__year">1989</span><span class="timeline__text">野津税理士事務所 設立</span></li>
           </ul>
-          <p class="person__note">富山県支部連絡協議会 会長</p>
+          <ul class="person__notes">
+            <li>富山県支部連絡協議会 会長</li>
+            <li>TKC全国会 クリニック開業支援アドバイザー</li>
+          </ul>
         </article>
 
         <article class="person reveal">
@@ -429,7 +443,9 @@
             <li><span class="timeline__year">2017</span><span class="timeline__text">税理士登録</span></li>
             <li><span class="timeline__year">2022</span><span class="timeline__text">所長就任</span></li>
           </ul>
-          <p class="person__note">魚津支部デジタルシステム部 幹事</p>
+          <ul class="person__notes">
+            <li>魚津支部デジタルシステム部 幹事</li>
+          </ul>
         </article>
       </div>
     </div>
@@ -490,8 +506,6 @@
   </section>
 
   <!-- ============ 07 FAQ ============ -->
-  <!-- !!! 回答文は現行サイトの記載をもとにした叩き台です。
-       事務所の実際の運用と合っているか、README.md の「要確認リスト」でご確認ください。 !!! -->
   <section class="section section--paper" id="faq">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -500,6 +514,13 @@
       </div>
 
       <div class="faq reveal">
+        <details class="faq__item">
+          <summary class="faq__q"><span class="faq__mark">Q</span>初回の相談は無料ですか。</summary>
+          <div class="faq__a"><span class="faq__mark faq__mark--a">A</span>
+            <p>はい。初回のご相談は無料です。開業前のご相談やオンライン（ZOOM）での初回面談にも対応しています。</p>
+          </div>
+        </details>
+
         <details class="faq__item">
           <summary class="faq__q"><span class="faq__mark">Q</span>開業するかどうか、まだ決めていない段階でも相談できますか。</summary>
           <div class="faq__a"><span class="faq__mark faq__mark--a">A</span>
@@ -524,7 +545,7 @@
         <details class="faq__item">
           <summary class="faq__q"><span class="faq__mark">Q</span>顧問料はどのくらいかかりますか。</summary>
           <div class="faq__a"><span class="faq__mark faq__mark--a">A</span>
-            <p>事業の規模やご依頼いただく業務の範囲によって異なります。ご相談の際に内容をお伺いしたうえで、お見積りをご提示いたします。</p>
+            <p>初回のご相談は無料です。顧問料は、事業の規模やご依頼いただく業務の範囲によって異なります。ご相談の際に内容をお伺いしたうえで、お見積りをご提示いたします。</p>
           </div>
         </details>
 
@@ -625,8 +646,9 @@
         <div class="contact__intro reveal">
           <p class="route-code"><span class="route-code__num">09</span><span class="route-code__en">CONTACT</span></p>
           <h2 class="contact__title">まずは、話を<br>聞かせてください。</h2>
-          <p class="contact__lead">無理な勧誘は一切いたしません。どんな入り口でも構いません。</p>
+          <p class="contact__lead">初回のご相談は無料です。無理な勧誘は一切いたしません。どんな入り口でも構いません。</p>
           <ul class="contact__points">
+            <li><span class="check" aria-hidden="true"></span>初回のご相談は無料です</li>
             <li><span class="check" aria-hidden="true"></span>開業を決める前でも相談OK</li>
             <li><span class="check" aria-hidden="true"></span>ZOOM面談に対応しています</li>
             <li><span class="check" aria-hidden="true"></span>富山県全域＋石川県一部に伺います</li>

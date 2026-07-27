@@ -740,13 +740,29 @@ body {
   padding-top: 0.25em;
 }
 .timeline__text { color: rgba(253, 252, 249, 0.88); }
-.person__note {
+.person__notes {
   margin-top: clamp(1rem, 2vw, 1.5rem);
   padding-top: clamp(1rem, 2vw, 1.5rem);
   border-top: 1px solid rgba(168, 184, 172, 0.22);
+  display: grid;
+  gap: 0.55em;
   font-size: var(--size-small);
   letter-spacing: 0.08em;
   color: var(--mist);
+}
+.person__notes li {
+  padding-left: 0.9em;
+  position: relative;
+}
+.person__notes li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 0.35em;
+  height: 0.35em;
+  border-radius: 50%;
+  background: var(--signal);
 }
 
 /* =========================================================
