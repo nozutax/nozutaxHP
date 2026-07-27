@@ -17,9 +17,9 @@
 ├─ gas/                  … お問い合わせ用 Google Apps Script
 │  ├─ Code.gs            … 通知メール＋確認メール
 │  └─ デプロイ手順.md    … 初回セットアップ手順
-├─ robots.txt            … クローラ向け（Sitemap URL は本番ドメイン後）
-├─ sitemap.xml.example   … 本番ドメイン確定後に sitemap.xml 化
-├─ llms.txt              … AI向けサイト要約（実験的）
+├─ robots.txt            … クローラ向け（Sitemap: https://nzktax.com/sitemap.xml）
+├─ sitemap.xml           … サイトマップ（https://nzktax.com/）
+├─ llms.txt              … AI向けサイト要約
 ├─ picture/              … 画像（ご提供いただいたもの）
 │  ├─ cropped-aicon.jpg  … 事務所アイコン
 │  ├─ kazuhiko.jpg       … 野津和彦さん
@@ -136,7 +136,7 @@ Information の3項目とフッターのFacebookにリンクを設定しまし�
 - **Googleフォント**：Zen Kaku Gothic New と Archivo を使用しています。Wix にも同名フォントがあるか、
   なければ近いものへの置き換えが必要です。
 - **画像**：`picture/` の3点をWix側にアップロードし直す必要があります。
-- **SEO（ドメイン確定後）**：`canonical` / `og:url` / `og:image`（絶対URL）と `sitemap.xml` の本番化。Search Console・Googleビジネスプロフィールは公開後に登録。
+- **SEO**：`canonical` / `og:url` / `og:image` / `sitemap.xml` / `robots.txt` は `https://nzktax.com` で設定済み。公開後に Search Console・Googleビジネスプロフィールへ登録してください。
 
 ## デザイントークン（制作会社への指定用）
 

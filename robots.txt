@@ -1,7 +1,6 @@
-# 野津税理士事務所（公開後のクローラ向け）
-# 本番ドメイン確定後、Sitemap 行の URL を書き換えてください。
+# 野津税理士事務所 https://nzktax.com/
 
 User-agent: *
 Allow: /
 
-# Sitemap: https://（本番ドメイン）/sitemap.xml
+Sitemap: https://nzktax.com/sitemap.xml
